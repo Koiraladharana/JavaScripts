@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-12</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: blueviolet;
+            color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Function</h1>
+    <script>
+        function hello(){
+            console.log("Hello World");
+        }
+        hello();
+
+        function hel(name){
+          console.log(`Hello ${name}. Enjoy Your Day`);
+        }
+        hel("RADHA DAHAL");
+
+        function add(x , y){
+            return x + y;
+        }
+        let addition= add(20 , 30);
+        console.log(addition);
+
+        function check(a){
+            if(a % 2 === 0){
+                console.log("Even Number");
+            }
+            else{
+                console.log("Odd Number");
+            }
+        }
+        check(11);
+
+        function age(b){
+            if(b >= 18){
+                console.log("Congratulation You Are Adult");
+            }
+            else if(b < 18 && b >=1){
+                console.log("Sorry You Are Not Adult.You Are Minor.");
+            }
+            else{
+                console.log("Please enter valid Age");
+            }
+        }
+        age(18);
+
+        function square(c){
+            return c*c;
+        }
+        let sq= square(5);
+        console.log(sq);
+    </script>
+</body>
+</html>
