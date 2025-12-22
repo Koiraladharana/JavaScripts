@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-11</title>
+</head>
+<body>
+    <h1>Objects plus Loop</h1>
+    <script>
+        let student={
+            name: "Chat",
+            age: 25,
+            city: "ChatGptPur"
+        }
+        for(let key in student){
+            console.log(`${key}:${student[key]}`);
+        }
+        let students=[
+            {name:"Rita", age:22, field:"AI"},
+            {name:"Gita", age:43, field:"Finance"},
+        ];
+        for(let stu of students){
+            console.log(stu.name, stu.field);
+            console.log(`Name:${stu.name}, Age:${stu.age}`);
+        }
+        let users=[
+            {username:"Ram", skills:["HTML","CSIT","JS"]},
+            {username:"Sita", skills:["HTML","JS"]}
+        ];
+        for(let user of users){
+            console.log(user.username);
+            for(let skill of user.skills){
+                console.log(skill);
+            }
+        }
+        for(let user of users){
+    console.log(`${user.username} has ${user.skills.length} skills`);
+}
+
+    </script>
+</body>
+</html>
