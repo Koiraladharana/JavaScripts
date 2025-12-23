@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-13</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: blueviolet;
+            color: brown;
+            border: 3px solid black;
+            width: auto;
+            border-radius: 70px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Advance function</h1>
+    <script>
+        let check= (num) => {
+            if(num % 2 === 0){console.log("Even");}
+            else{console.log("Odd");}
+        }
+        check(4);
+
+        let che= (num3)=> num3 % 2 === 0 ? "Even":"odd";
+        console.log(che(34));
+
+        let sq = (num1) => num1 * num1;
+        console.log(sq(3));
+
+        let age = (a=18) =>{
+            if(a < 18 && a>=1){console.log("You are not Adult.Try After you are 18.");}
+            else{
+                console.log("You are Adult.")
+            }
+        }
+        age();
+        age(2);
+
+        let sequence = (...numb) =>{
+            let sum = 0;
+            for(let nu of numb){
+                sum+= nu;
+            }
+            return sum;
+        }
+        console.log(sequence(12,23,1,2));
+        console.log(sequence());
+        console.log(sequence(12,23,1,2));
+    </script>
+</body>
+</html>
