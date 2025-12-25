@@ -5,8 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day-14</title>
+    <style>
+        #welcome{
+            text-align: center;
+            background-color: blueviolet;
+        }
+        .dom{
+            text-align: center;
+            background-color: aqua;
+            border: 5px solid slategrey;
+            height: 50px;
+            margin: 30px;
+            padding-top: 30px;
+        }
+        #btn{
+            text-align: center;
+            height: 40px;
+            cursor: pointer;
+            transition: background-color 0.2 ease;
+        }
+        #btn:hover{
+              background-color: red;
+        }
+    </style>
 </head>
 <body>
-    
+    <h2 id="welcome">Welcome to Document Object Model</h2>
+    <p class="dom">This is DOM practice page.Welcome to read DOM.</p>
+    <button id="btn">Click Me</button>
+
+    <script>
+        let wel=document.getElementById("welcome");
+        let text=document.querySelector(".dom");
+        let btn=document.getElementById("btn");
+
+        btn.addEventListener("click", () => {
+            wel.innerText= ("Welcome Dharana");
+            wel.style.backgroundColor= "red";
+            wel.style.color="white";
+            text.innerText= ("Welcome to DOM");
+        });
+    </script>
 </body>
 </html>
