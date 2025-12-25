@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-15</title>
+    <style>
+       h1{
+        text-align: center;
+        background-color: lightcoral;
+        color: blueviolet;
+       }
+       .container{
+        border: 5px solid purple;
+        border-radius: 60px 20px 60px 20px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 180px;
+        padding: 20px;
+        width: 250px;
+        background-color: lightpink;
+        text-align: center;
+       }
+       body{
+        background-color: rgb(186, 58, 186);
+       }
+       #submit{
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+       }
+       #submit:hover{
+        background-color: rgb(243, 11, 11);
+       }
+       #output{
+        margin: 20px;
+       }
+    </style>
+</head>
+<body>
+    <h1>Day-15: Input Value Practice</h1>
+    <div class="container">
+        <label for="mail">EMAIL:</label><br><br>
+        <input type="email" id="email"><br><br>
+
+        <label for="pass">PASSWORD:</label><br><br>
+        <input type="password" id="password"><br><br>
+
+        <button id="submit">SUBMIT</button>
+        <h2 id="output"></h2>
+        <h2 id="output1"></h2>
+        <h2 id="output2"></h2>
+
+        <script>
+            const inmail= document.querySelector("#email");
+            const inpassword= document.querySelector("#password");
+            const submit= document.querySelector("#submit");
+
+            const output=document.querySelector("#output");
+            const output1=document.querySelector("#output1");
+            const output2=document.querySelector("#output2");
+
+            submit.addEventListener("click", () => {
+                let mail= inmail.value.trim();
+                let pd= inpassword.value;
+
+                const hasNumber = /\d/;
+                const hasSpecial = /[!@#$%^&*]/;
+                let isValid= true;
+                let errorMsg= [];
+
+                output.innerText = "";
+                output1.innerText = "";
+                output2.innerText = "";
+                
+                if(mail === "") errorMsg.push("Email should not be empty");
+                if(pd.length <=5) errorMsg.push("Password must me more than 5");
+                if(!mail.includes("@")) errorMsg.push("Must include @");
+                if(!hasNumber.test(pd)) errorMsg.push("Must include a number");
+                if(!hasSpecial.test(pd)) errorMsg.push("Must include one of these [!@#$%^&*]");
+
+                if(errorMsg.length > 0){
+                    output1.innerText= "⚠" + errorMsg.join(", ⚠");
+                    output1.style.color="red";
+                    output1.style.margin= "50px";
+                    isValid= false;
+                }
+                
+                if(isValid){
+                    output.innerHTML="<h1>Login Success</h1>";
+                    output.style.border="8px solid black";
+                    output.style.margin="60px";
+                    output.style.width="200px";
+                    output.style.color = "green";
+                }
+                
+            });
+        </script>
+    </div>
+</body>
+</html>
