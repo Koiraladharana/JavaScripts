@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-16</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        #myForm{
+            border: 5px solid black;
+            background-color: rgb(203, 164, 240);
+            width: 300px;
+            height: 200px;
+            text-align: center;
+            padding: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Submit + preventDefault + Validation</h1>
+    <form id="myForm">
+        <label>Email</label><br>
+        <input type="text" id="email"><br><br>
+
+        <label>Password</label><br>
+        <input type="password" id="password"><br><br>
+
+        <button id="submit">Submit</button>
+
+        <h3 id="message"></h3>
+    </form>
+
+    <script>
+        const form=document.querySelector("#myForm");
+        const emailInput=document.querySelector("#email");
+        const passwordInput= document.querySelector("#password");
+        const message= document.querySelector("#message");
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            let emailValue= emailInput.value.trim();
+            let passwordValue= passwordInput.value;
+            const hasSpecial=/[!@#$%^&*]/;
+            const hasNumber=/\d/;
+            
+            message.innerText="";
+
+            if(emailValue === ""){
+                message.innerText="⚠ Email can not be empty";
+                message.style.color="red";
+                message.style.border = "3px solid red";
+                message.style.padding = "5px";
+                message.style.marginTop = "10px";
+                return;
+            }
+            if(!emailValue.includes("@")){
+                message.innerText="⚠ Email mut include @";
+                message.style.color="red";
+                message.style.border = "3px solid red";
+                message.style.padding = "5px";
+                message.style.marginTop = "10px";
+                return;
+            }
+            if(!emailValue.endsWith(".com")){
+                message.innerText="Email must end with .com";
+                message.style.color="red";
+                message.style.border = "3px solid red";
+                message.style.padding = "5px";
+                message.style.marginTop = "10px";
+                return;
+            }
+            if(passwordValue.length < 6 || !hasNumber.test(passwordValue) || !hasSpecial.test(passwordValue)){
+                message.innerText="Password must be more than 6 and must include number and special character i.e !@#$%^&*";
+                message.style.color="red";
+                message.style.border = "3px solid red";
+                message.style.padding = "5px";
+                message.style.marginTop = "10px";
+                return;
+            }
+
+            message.innerText="Login successful!";
+            message.style.color="green";
+            message.style.border = "3px solid green";
+            message.style.padding = "5px";
+            message.style.marginTop = "10px";
+        });
+    </script>
+</body>
+</html>
